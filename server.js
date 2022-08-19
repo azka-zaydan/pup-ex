@@ -1,6 +1,6 @@
 import express from 'express'
 import { scrapeImages } from './src/scrape.js'
-
+import cors from 'cors'
 const app = express()
 
 app.use(cors({
