@@ -1,4 +1,7 @@
 import puppeteer from 'puppeteer'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min)
@@ -31,14 +34,14 @@ export const scrapeImages = async (username) => {
         // delay(3000, 5000)
 
         const inputFields = await page.$x('//input')
-        console.log(inputFields)
+        // console.log(inputFields)
 
         await inputFields[0].focus()
-        await page.keyboard.type('azkamediadump2')
+        await page.keyboard.type(process.env.USERNAME)
         await delay(3000, 5000)
 
         await inputFields[1].focus()
-        await page.keyboard.type('Azkarafif1415')
+        await page.keyboard.type(process.env.PASSWORD)
         await delay(3000, 5000)
 
         const submitButton = await page.$x('//button[@type="submit"]')
