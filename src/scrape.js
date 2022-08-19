@@ -35,12 +35,17 @@ export const scrapeImages = async (username) => {
 
         await inputFields[0].focus()
         await page.keyboard.type('azkamediadump2')
+        await delay(3000, 5000)
 
         await inputFields[1].focus()
         await page.keyboard.type('Azkarafif1415')
+        await delay(3000, 5000)
+
         const submitButton = await page.$x('//button[@type="submit"]')
         await submitButton[0].click()
+
         await delay(3000, 5000)
+
         await page.goto(`https://www.instagram.com/${username}`, { waitUntil: 'networkidle0' })
         // const notNow = await page.$x('//button[@type="button"]')
         // await notNow[0].click()
@@ -54,6 +59,7 @@ export const scrapeImages = async (username) => {
     })
 
     // await page.screenshot({ path: `${username}'s-page.png` })
+    await delay(3000, 5000)
     const data = await page.evaluate(() => {
         const images = document.querySelectorAll('img')
         const urls = Array.from(images).map(i => {
