@@ -15,7 +15,7 @@ app.get('/', (req, res) => res.status(200).json({
 app.get('/scrape/:username', async (req, res) => {
     const username = req.params.username
     const data = await scrapeImages(username)
-    res.status(200).json({ data })
+    res.status(200).json({ username, data })
     console.log('data sent')
 })
 
